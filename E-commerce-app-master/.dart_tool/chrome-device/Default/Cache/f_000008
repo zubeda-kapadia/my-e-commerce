@@ -1,0 +1,450 @@
+define(['dart_sdk', 'packages/e_commerce/model/product.dart', 'packages/e_commerce/model/categoryicon.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/flutter/src/foundation/change_notifier.dart'], (function load__packages__e_commerce__provider__category_provider_dart(dart_sdk, packages__e_commerce__model__product$46dart, packages__e_commerce__model__categoryicon$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__flutter__src__foundation__change_notifier$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const product = packages__e_commerce__model__product$46dart.model__product;
+  const categoryicon = packages__e_commerce__model__categoryicon$46dart.model__categoryicon;
+  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  var category_provider = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $forEach = dartx.forEach;
+  var $toUpperCase = dartx.toUpperCase;
+  var $contains = dartx.contains;
+  var $toLowerCase = dartx.toLowerCase;
+  var $where = dartx.where;
+  var $toList = dartx.toList;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    ProductL: () => (T.ProductL = dart.constFn(dart.legacy(product.Product)))(),
+    JSArrayOfProductL: () => (T.JSArrayOfProductL = dart.constFn(_interceptors.JSArray$(T.ProductL())))(),
+    CategoryIconL: () => (T.CategoryIconL = dart.constFn(dart.legacy(categoryicon.CategoryIcon)))(),
+    JSArrayOfCategoryIconL: () => (T.JSArrayOfCategoryIconL = dart.constFn(_interceptors.JSArray$(T.CategoryIconL())))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    QueryDocumentSnapshotL: () => (T.QueryDocumentSnapshotL = dart.constFn(dart.legacy(cloud_firestore.QueryDocumentSnapshot)))(),
+    QueryDocumentSnapshotLToNull: () => (T.QueryDocumentSnapshotLToNull = dart.constFn(dart.fnType(core.Null, [T.QueryDocumentSnapshotL()])))(),
+    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    ProductLToboolL: () => (T.ProductLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.ProductL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = ["package:e_commerce/provider/category_provider.dart"];
+  var shirt = dart.privateName(category_provider, "CategoryProvider.shirt");
+  var shirtData = dart.privateName(category_provider, "CategoryProvider.shirtData");
+  var dress = dart.privateName(category_provider, "CategoryProvider.dress");
+  var dressData = dart.privateName(category_provider, "CategoryProvider.dressData");
+  var shoes = dart.privateName(category_provider, "CategoryProvider.shoes");
+  var shoesData = dart.privateName(category_provider, "CategoryProvider.shoesData");
+  var pant = dart.privateName(category_provider, "CategoryProvider.pant");
+  var pantData = dart.privateName(category_provider, "CategoryProvider.pantData");
+  var tie = dart.privateName(category_provider, "CategoryProvider.tie");
+  var tieData = dart.privateName(category_provider, "CategoryProvider.tieData");
+  var dressIcon = dart.privateName(category_provider, "CategoryProvider.dressIcon");
+  var dressiconData = dart.privateName(category_provider, "CategoryProvider.dressiconData");
+  var shirtIcon = dart.privateName(category_provider, "CategoryProvider.shirtIcon");
+  var shirticonData = dart.privateName(category_provider, "CategoryProvider.shirticonData");
+  var shoesIcon = dart.privateName(category_provider, "CategoryProvider.shoesIcon");
+  var shoesiconData = dart.privateName(category_provider, "CategoryProvider.shoesiconData");
+  var pantIcon = dart.privateName(category_provider, "CategoryProvider.pantIcon");
+  var panticonData = dart.privateName(category_provider, "CategoryProvider.panticonData");
+  var tieIcon = dart.privateName(category_provider, "CategoryProvider.tieIcon");
+  var tieIconData = dart.privateName(category_provider, "CategoryProvider.tieIconData");
+  var searchList = dart.privateName(category_provider, "CategoryProvider.searchList");
+  const Object_ChangeNotifier$36 = class Object_ChangeNotifier extends core.Object {};
+  (Object_ChangeNotifier$36.new = function() {
+    change_notifier.ChangeNotifier.new.call(this);
+  }).prototype = Object_ChangeNotifier$36.prototype;
+  dart.applyMixin(Object_ChangeNotifier$36, change_notifier.ChangeNotifier);
+  category_provider.CategoryProvider = class CategoryProvider extends Object_ChangeNotifier$36 {
+    get shirt() {
+      return this[shirt];
+    }
+    set shirt(value) {
+      this[shirt] = value;
+    }
+    get shirtData() {
+      return this[shirtData];
+    }
+    set shirtData(value) {
+      this[shirtData] = value;
+    }
+    get dress() {
+      return this[dress];
+    }
+    set dress(value) {
+      this[dress] = value;
+    }
+    get dressData() {
+      return this[dressData];
+    }
+    set dressData(value) {
+      this[dressData] = value;
+    }
+    get shoes() {
+      return this[shoes];
+    }
+    set shoes(value) {
+      this[shoes] = value;
+    }
+    get shoesData() {
+      return this[shoesData];
+    }
+    set shoesData(value) {
+      this[shoesData] = value;
+    }
+    get pant() {
+      return this[pant];
+    }
+    set pant(value) {
+      this[pant] = value;
+    }
+    get pantData() {
+      return this[pantData];
+    }
+    set pantData(value) {
+      this[pantData] = value;
+    }
+    get tie() {
+      return this[tie];
+    }
+    set tie(value) {
+      this[tie] = value;
+    }
+    get tieData() {
+      return this[tieData];
+    }
+    set tieData(value) {
+      this[tieData] = value;
+    }
+    get dressIcon() {
+      return this[dressIcon];
+    }
+    set dressIcon(value) {
+      this[dressIcon] = value;
+    }
+    get dressiconData() {
+      return this[dressiconData];
+    }
+    set dressiconData(value) {
+      this[dressiconData] = value;
+    }
+    get shirtIcon() {
+      return this[shirtIcon];
+    }
+    set shirtIcon(value) {
+      this[shirtIcon] = value;
+    }
+    get shirticonData() {
+      return this[shirticonData];
+    }
+    set shirticonData(value) {
+      this[shirticonData] = value;
+    }
+    get shoesIcon() {
+      return this[shoesIcon];
+    }
+    set shoesIcon(value) {
+      this[shoesIcon] = value;
+    }
+    get shoesiconData() {
+      return this[shoesiconData];
+    }
+    set shoesiconData(value) {
+      this[shoesiconData] = value;
+    }
+    get pantIcon() {
+      return this[pantIcon];
+    }
+    set pantIcon(value) {
+      this[pantIcon] = value;
+    }
+    get panticonData() {
+      return this[panticonData];
+    }
+    set panticonData(value) {
+      this[panticonData] = value;
+    }
+    get tieIcon() {
+      return this[tieIcon];
+    }
+    set tieIcon(value) {
+      this[tieIcon] = value;
+    }
+    get tieIconData() {
+      return this[tieIconData];
+    }
+    set tieIconData(value) {
+      this[tieIconData] = value;
+    }
+    get searchList() {
+      return this[searchList];
+    }
+    set searchList(value) {
+      this[searchList] = value;
+    }
+    getDressIconData() {
+      return async.async(dart.void, (function* getDressIconData() {
+        let newList = T.JSArrayOfCategoryIconL().of([]);
+        let dressSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("categoryicon").doc("SiNJYcU8RRVrXaLUL9v3").collection("dress").get());
+        dressSnapShot.docs[$forEach](dart.fn(element => {
+          this.dressiconData = new categoryicon.CategoryIcon.new({image: T.StringL().as(element.data()[$_get]("image"))});
+          newList[$add](this.dressiconData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.dressIcon = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getDressIcon() {
+      return this.dressIcon;
+    }
+    getShirtIcon() {
+      return async.async(dart.void, (function* getShirtIcon() {
+        let newList = T.JSArrayOfCategoryIconL().of([]);
+        let shirtSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("categoryicon").doc("SiNJYcU8RRVrXaLUL9v3").collection("shirt").get());
+        shirtSnapShot.docs[$forEach](dart.fn(element => {
+          this.shirticonData = new categoryicon.CategoryIcon.new({image: T.StringL().as(element.data()[$_get]("image"))});
+          newList[$add](this.shirticonData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.shirtIcon = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getShirtIconData() {
+      return this.shirtIcon;
+    }
+    getshoesIconData() {
+      return async.async(dart.void, (function* getshoesIconData() {
+        let newList = T.JSArrayOfCategoryIconL().of([]);
+        let shoesSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("categoryicon").doc("SiNJYcU8RRVrXaLUL9v3").collection("shoe").get());
+        shoesSnapShot.docs[$forEach](dart.fn(element => {
+          this.shoesiconData = new categoryicon.CategoryIcon.new({image: T.StringL().as(element.data()[$_get]("image"))});
+          newList[$add](this.shoesiconData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.shoesIcon = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getShoeIcon() {
+      return this.shoesIcon;
+    }
+    getPantIconData() {
+      return async.async(dart.void, (function* getPantIconData() {
+        let newList = T.JSArrayOfCategoryIconL().of([]);
+        let pantSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("categoryicon").doc("SiNJYcU8RRVrXaLUL9v3").collection("pant").get());
+        pantSnapShot.docs[$forEach](dart.fn(element => {
+          this.panticonData = new categoryicon.CategoryIcon.new({image: T.StringL().as(element.data()[$_get]("image"))});
+          newList[$add](this.panticonData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.pantIcon = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getPantIcon() {
+      return this.pantIcon;
+    }
+    getTieIconData() {
+      return async.async(dart.void, (function* getTieIconData() {
+        let newList = T.JSArrayOfCategoryIconL().of([]);
+        let tieSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("categoryicon").doc("SiNJYcU8RRVrXaLUL9v3").collection("tie").get());
+        tieSnapShot.docs[$forEach](dart.fn(element => {
+          this.tieIconData = new categoryicon.CategoryIcon.new({image: T.StringL().as(element.data()[$_get]("image"))});
+          newList[$add](this.tieIconData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.tieIcon = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getTieIcon() {
+      return this.tieIcon;
+    }
+    getShirtData() {
+      return async.async(dart.void, (function* getShirtData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let shirtSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("category").doc("hKyfiWV7zSLen6HYJgVf").collection("shirt").get());
+        shirtSnapShot.docs[$forEach](dart.fn(element => {
+          this.shirtData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.shirtData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.shirt = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getShirtList() {
+      return this.shirt;
+    }
+    getDressData() {
+      return async.async(dart.void, (function* getDressData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let shirtSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("category").doc("hKyfiWV7zSLen6HYJgVf").collection("dress").get());
+        shirtSnapShot.docs[$forEach](dart.fn(element => {
+          this.shirtData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.shirtData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.dress = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getDressList() {
+      return this.dress;
+    }
+    getShoesData() {
+      return async.async(dart.void, (function* getShoesData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let shirtSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("category").doc("hKyfiWV7zSLen6HYJgVf").collection("shoes").get());
+        shirtSnapShot.docs[$forEach](dart.fn(element => {
+          this.shirtData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.shirtData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.shoes = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getshoesList() {
+      return this.shoes;
+    }
+    getPantData() {
+      return async.async(dart.void, (function* getPantData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let shirtSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("category").doc("hKyfiWV7zSLen6HYJgVf").collection("pant").get());
+        shirtSnapShot.docs[$forEach](dart.fn(element => {
+          this.shirtData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.shirtData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.pant = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getPantList() {
+      return this.pant;
+    }
+    getTieData() {
+      return async.async(dart.void, (function* getTieData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let shirtSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("category").doc("hKyfiWV7zSLen6HYJgVf").collection("tie").get());
+        shirtSnapShot.docs[$forEach](dart.fn(element => {
+          this.shirtData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.shirtData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.tie = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getTieList() {
+      return this.tie;
+    }
+    getSearchList(opts) {
+      let list = opts && 'list' in opts ? opts.list : null;
+      this.searchList = list;
+    }
+    searchCategoryList(query) {
+      let searchShirt = this.searchList[$where](dart.fn(element => element.name[$toUpperCase]()[$contains](query) || element.name[$toLowerCase]()[$contains](query), T.ProductLToboolL()))[$toList]();
+      return searchShirt;
+    }
+  };
+  (category_provider.CategoryProvider.new = function() {
+    this[shirt] = T.JSArrayOfProductL().of([]);
+    this[shirtData] = null;
+    this[dress] = T.JSArrayOfProductL().of([]);
+    this[dressData] = null;
+    this[shoes] = T.JSArrayOfProductL().of([]);
+    this[shoesData] = null;
+    this[pant] = T.JSArrayOfProductL().of([]);
+    this[pantData] = null;
+    this[tie] = T.JSArrayOfProductL().of([]);
+    this[tieData] = null;
+    this[dressIcon] = T.JSArrayOfCategoryIconL().of([]);
+    this[dressiconData] = null;
+    this[shirtIcon] = T.JSArrayOfCategoryIconL().of([]);
+    this[shirticonData] = null;
+    this[shoesIcon] = T.JSArrayOfCategoryIconL().of([]);
+    this[shoesiconData] = null;
+    this[pantIcon] = T.JSArrayOfCategoryIconL().of([]);
+    this[panticonData] = null;
+    this[tieIcon] = T.JSArrayOfCategoryIconL().of([]);
+    this[tieIconData] = null;
+    this[searchList] = null;
+    category_provider.CategoryProvider.__proto__.new.call(this);
+    ;
+  }).prototype = category_provider.CategoryProvider.prototype;
+  dart.addTypeTests(category_provider.CategoryProvider);
+  dart.addTypeCaches(category_provider.CategoryProvider);
+  dart.setMethodSignature(category_provider.CategoryProvider, () => ({
+    __proto__: dart.getMethods(category_provider.CategoryProvider.__proto__),
+    getDressIconData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getShirtIcon: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getshoesIconData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getPantIconData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getTieIconData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getShirtData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getDressData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getShoesData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getPantData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getTieData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getSearchList: dart.fnType(dart.void, [], {list: dart.legacy(core.List$(dart.legacy(product.Product)))}, {}),
+    searchCategoryList: dart.fnType(dart.legacy(core.List$(dart.legacy(product.Product))), [dart.legacy(core.String)])
+  }));
+  dart.setGetterSignature(category_provider.CategoryProvider, () => ({
+    __proto__: dart.getGetters(category_provider.CategoryProvider.__proto__),
+    getDressIcon: dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon))),
+    getShirtIconData: dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon))),
+    getShoeIcon: dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon))),
+    getPantIcon: dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon))),
+    getTieIcon: dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon))),
+    getShirtList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getDressList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getshoesList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getPantList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getTieList: dart.legacy(core.List$(dart.legacy(product.Product)))
+  }));
+  dart.setLibraryUri(category_provider.CategoryProvider, I[0]);
+  dart.setFieldSignature(category_provider.CategoryProvider, () => ({
+    __proto__: dart.getFields(category_provider.CategoryProvider.__proto__),
+    shirt: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    shirtData: dart.fieldType(dart.legacy(product.Product)),
+    dress: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    dressData: dart.fieldType(dart.legacy(product.Product)),
+    shoes: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    shoesData: dart.fieldType(dart.legacy(product.Product)),
+    pant: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    pantData: dart.fieldType(dart.legacy(product.Product)),
+    tie: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    tieData: dart.fieldType(dart.legacy(product.Product)),
+    dressIcon: dart.fieldType(dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon)))),
+    dressiconData: dart.fieldType(dart.legacy(categoryicon.CategoryIcon)),
+    shirtIcon: dart.fieldType(dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon)))),
+    shirticonData: dart.fieldType(dart.legacy(categoryicon.CategoryIcon)),
+    shoesIcon: dart.fieldType(dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon)))),
+    shoesiconData: dart.fieldType(dart.legacy(categoryicon.CategoryIcon)),
+    pantIcon: dart.fieldType(dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon)))),
+    panticonData: dart.fieldType(dart.legacy(categoryicon.CategoryIcon)),
+    tieIcon: dart.fieldType(dart.legacy(core.List$(dart.legacy(categoryicon.CategoryIcon)))),
+    tieIconData: dart.fieldType(dart.legacy(categoryicon.CategoryIcon)),
+    searchList: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product))))
+  }));
+  dart.trackLibraries("packages/e_commerce/provider/category_provider.dart", {
+    "package:e_commerce/provider/category_provider.dart": category_provider
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["category_provider.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/e_commerce/provider/category_provider.dart.lib.js"}');
+  // Exports:
+  return {
+    provider__category_provider: category_provider
+  };
+}));
+
+//# sourceMappingURL=category_provider.dart.lib.js.map

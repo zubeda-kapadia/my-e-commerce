@@ -1,0 +1,335 @@
+define(['dart_sdk', 'packages/e_commerce/model/product.dart', 'packages/e_commerce/model/cartmodel.dart', 'packages/e_commerce/model/usermodel.dart', 'packages/firebase_auth/firebase_auth.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/flutter/src/foundation/change_notifier.dart'], (function load__packages__e_commerce__provider__product_provider_dart(dart_sdk, packages__e_commerce__model__product$46dart, packages__e_commerce__model__cartmodel$46dart, packages__e_commerce__model__usermodel$46dart, packages__firebase_auth__firebase_auth$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__flutter__src__foundation__change_notifier$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const product = packages__e_commerce__model__product$46dart.model__product;
+  const cartmodel = packages__e_commerce__model__cartmodel$46dart.model__cartmodel;
+  const usermodel = packages__e_commerce__model__usermodel$46dart.model__usermodel;
+  const firebase_auth = packages__firebase_auth__firebase_auth$46dart.firebase_auth;
+  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  var product_provider = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $forEach = dartx.forEach;
+  var $removeAt = dartx.removeAt;
+  var $clear = dartx.clear;
+  var $length = dartx.length;
+  var $toUpperCase = dartx.toUpperCase;
+  var $contains = dartx.contains;
+  var $toLowerCase = dartx.toLowerCase;
+  var $where = dartx.where;
+  var $toList = dartx.toList;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    ProductL: () => (T.ProductL = dart.constFn(dart.legacy(product.Product)))(),
+    JSArrayOfProductL: () => (T.JSArrayOfProductL = dart.constFn(_interceptors.JSArray$(T.ProductL())))(),
+    CartModelL: () => (T.CartModelL = dart.constFn(dart.legacy(cartmodel.CartModel)))(),
+    JSArrayOfCartModelL: () => (T.JSArrayOfCartModelL = dart.constFn(_interceptors.JSArray$(T.CartModelL())))(),
+    UserModelL: () => (T.UserModelL = dart.constFn(dart.legacy(usermodel.UserModel)))(),
+    JSArrayOfUserModelL: () => (T.JSArrayOfUserModelL = dart.constFn(_interceptors.JSArray$(T.UserModelL())))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    JSArrayOfStringL: () => (T.JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(T.StringL())))(),
+    QueryDocumentSnapshotL: () => (T.QueryDocumentSnapshotL = dart.constFn(dart.legacy(cloud_firestore.QueryDocumentSnapshot)))(),
+    QueryDocumentSnapshotLToNull: () => (T.QueryDocumentSnapshotLToNull = dart.constFn(dart.fnType(core.Null, [T.QueryDocumentSnapshotL()])))(),
+    ListOfCartModelL: () => (T.ListOfCartModelL = dart.constFn(core.List$(T.CartModelL())))(),
+    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    ProductLToboolL: () => (T.ProductLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.ProductL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = ["package:e_commerce/provider/product_provider.dart"];
+  var feature = dart.privateName(product_provider, "ProductProvider.feature");
+  var featureData = dart.privateName(product_provider, "ProductProvider.featureData");
+  var checkOutModelList = dart.privateName(product_provider, "ProductProvider.checkOutModelList");
+  var checkOutModel = dart.privateName(product_provider, "ProductProvider.checkOutModel");
+  var userModelList = dart.privateName(product_provider, "ProductProvider.userModelList");
+  var userModel = dart.privateName(product_provider, "ProductProvider.userModel");
+  var homeFeature = dart.privateName(product_provider, "ProductProvider.homeFeature");
+  var homeAchive = dart.privateName(product_provider, "ProductProvider.homeAchive");
+  var newAchives = dart.privateName(product_provider, "ProductProvider.newAchives");
+  var newAchivesData = dart.privateName(product_provider, "ProductProvider.newAchivesData");
+  var notificationList = dart.privateName(product_provider, "ProductProvider.notificationList");
+  var searchList = dart.privateName(product_provider, "ProductProvider.searchList");
+  const Object_ChangeNotifier$36 = class Object_ChangeNotifier extends core.Object {};
+  (Object_ChangeNotifier$36.new = function() {
+    change_notifier.ChangeNotifier.new.call(this);
+  }).prototype = Object_ChangeNotifier$36.prototype;
+  dart.applyMixin(Object_ChangeNotifier$36, change_notifier.ChangeNotifier);
+  product_provider.ProductProvider = class ProductProvider extends Object_ChangeNotifier$36 {
+    get feature() {
+      return this[feature];
+    }
+    set feature(value) {
+      this[feature] = value;
+    }
+    get featureData() {
+      return this[featureData];
+    }
+    set featureData(value) {
+      this[featureData] = value;
+    }
+    get checkOutModelList() {
+      return this[checkOutModelList];
+    }
+    set checkOutModelList(value) {
+      this[checkOutModelList] = value;
+    }
+    get checkOutModel() {
+      return this[checkOutModel];
+    }
+    set checkOutModel(value) {
+      this[checkOutModel] = value;
+    }
+    get userModelList() {
+      return this[userModelList];
+    }
+    set userModelList(value) {
+      this[userModelList] = value;
+    }
+    get userModel() {
+      return this[userModel];
+    }
+    set userModel(value) {
+      this[userModel] = value;
+    }
+    get homeFeature() {
+      return this[homeFeature];
+    }
+    set homeFeature(value) {
+      this[homeFeature] = value;
+    }
+    get homeAchive() {
+      return this[homeAchive];
+    }
+    set homeAchive(value) {
+      this[homeAchive] = value;
+    }
+    get newAchives() {
+      return this[newAchives];
+    }
+    set newAchives(value) {
+      this[newAchives] = value;
+    }
+    get newAchivesData() {
+      return this[newAchivesData];
+    }
+    set newAchivesData(value) {
+      this[newAchivesData] = value;
+    }
+    get notificationList() {
+      return this[notificationList];
+    }
+    set notificationList(value) {
+      this[notificationList] = value;
+    }
+    get searchList() {
+      return this[searchList];
+    }
+    set searchList(value) {
+      this[searchList] = value;
+    }
+    getUserData() {
+      return async.async(dart.void, (function* getUserData() {
+        let newList = T.JSArrayOfUserModelL().of([]);
+        let currentUser = firebase_auth.FirebaseAuth.instance.currentUser;
+        let userSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("User").get());
+        userSnapShot.docs[$forEach](dart.fn(element => {
+          if (core.identical(currentUser.uid, element.data()[$_get]("UserId"))) {
+            this.userModel = new usermodel.UserModel.new({userAddress: T.StringL().as(element.data()[$_get]("UserAddress")), userImage: T.StringL().as(element.data()[$_get]("UserImage")), userEmail: T.StringL().as(element.data()[$_get]("UserEmail")), userGender: T.StringL().as(element.data()[$_get]("UserGender")), userName: T.StringL().as(element.data()[$_get]("UserName")), userPhoneNumber: T.StringL().as(element.data()[$_get]("UserNumber"))});
+            newList[$add](this.userModel);
+          }
+          this.userModelList = newList;
+        }, T.QueryDocumentSnapshotLToNull()));
+      }).bind(this));
+    }
+    get getUserModelList() {
+      return this.userModelList;
+    }
+    deleteCheckoutProduct(index) {
+      this.checkOutModelList[$removeAt](index);
+      this.notifyListeners();
+    }
+    clearCheckoutProduct() {
+      this.checkOutModelList[$clear]();
+      this.notifyListeners();
+    }
+    getCheckOutData(opts) {
+      let quentity = opts && 'quentity' in opts ? opts.quentity : null;
+      let price = opts && 'price' in opts ? opts.price : null;
+      let name = opts && 'name' in opts ? opts.name : null;
+      let color = opts && 'color' in opts ? opts.color : null;
+      let size = opts && 'size' in opts ? opts.size : null;
+      let image = opts && 'image' in opts ? opts.image : null;
+      this.checkOutModel = new cartmodel.CartModel.new({color: color, size: size, price: price, name: name, image: image, quentity: quentity});
+      this.checkOutModelList[$add](this.checkOutModel);
+    }
+    get getCheckOutModelList() {
+      return T.ListOfCartModelL().from(this.checkOutModelList);
+    }
+    get getCheckOutModelListLength() {
+      return this.checkOutModelList[$length];
+    }
+    getFeatureData() {
+      return async.async(dart.void, (function* getFeatureData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let featureSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("products").doc("hfPmMokn0tbAuGZvRMy1").collection("featureproduct").get());
+        featureSnapShot.docs[$forEach](dart.fn(element => {
+          this.featureData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.featureData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.feature = newList;
+      }).bind(this));
+    }
+    get getFeatureList() {
+      return this.feature;
+    }
+    getHomeFeatureData() {
+      return async.async(dart.void, (function* getHomeFeatureData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let featureSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("homefeature").get());
+        featureSnapShot.docs[$forEach](dart.fn(element => {
+          this.featureData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.featureData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.homeFeature = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getHomeFeatureList() {
+      return this.homeFeature;
+    }
+    getHomeAchiveData() {
+      return async.async(dart.void, (function* getHomeAchiveData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let featureSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("homeachive").get());
+        featureSnapShot.docs[$forEach](dart.fn(element => {
+          this.featureData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.featureData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.homeAchive = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getHomeAchiveList() {
+      return this.homeAchive;
+    }
+    getNewAchiveData() {
+      return async.async(dart.void, (function* getNewAchiveData() {
+        let newList = T.JSArrayOfProductL().of([]);
+        let achivesSnapShot = (yield cloud_firestore.FirebaseFirestore.instance.collection("products").doc("hfPmMokn0tbAuGZvRMy1").collection("newachives").get());
+        achivesSnapShot.docs[$forEach](dart.fn(element => {
+          this.newAchivesData = new product.Product.new({image: T.StringL().as(element.data()[$_get]("image")), name: T.StringL().as(element.data()[$_get]("name")), price: T.doubleL().as(element.data()[$_get]("price"))});
+          newList[$add](this.newAchivesData);
+        }, T.QueryDocumentSnapshotLToNull()));
+        this.newAchives = newList;
+        this.notifyListeners();
+      }).bind(this));
+    }
+    get getNewAchiesList() {
+      return this.newAchives;
+    }
+    addNotification(notification) {
+      this.notificationList[$add](notification);
+    }
+    get getNotificationIndex() {
+      return this.notificationList[$length];
+    }
+    get getNotificationList() {
+      return this.notificationList;
+    }
+    getSearchList(opts) {
+      let list = opts && 'list' in opts ? opts.list : null;
+      this.searchList = list;
+    }
+    searchProductList(query) {
+      let searchShirt = this.searchList[$where](dart.fn(element => element.name[$toUpperCase]()[$contains](query) || element.name[$toLowerCase]()[$contains](query), T.ProductLToboolL()))[$toList]();
+      return searchShirt;
+    }
+  };
+  (product_provider.ProductProvider.new = function() {
+    this[feature] = T.JSArrayOfProductL().of([]);
+    this[featureData] = null;
+    this[checkOutModelList] = T.JSArrayOfCartModelL().of([]);
+    this[checkOutModel] = null;
+    this[userModelList] = T.JSArrayOfUserModelL().of([]);
+    this[userModel] = null;
+    this[homeFeature] = T.JSArrayOfProductL().of([]);
+    this[homeAchive] = T.JSArrayOfProductL().of([]);
+    this[newAchives] = T.JSArrayOfProductL().of([]);
+    this[newAchivesData] = null;
+    this[notificationList] = T.JSArrayOfStringL().of([]);
+    this[searchList] = null;
+    product_provider.ProductProvider.__proto__.new.call(this);
+    ;
+  }).prototype = product_provider.ProductProvider.prototype;
+  dart.addTypeTests(product_provider.ProductProvider);
+  dart.addTypeCaches(product_provider.ProductProvider);
+  dart.setMethodSignature(product_provider.ProductProvider, () => ({
+    __proto__: dart.getMethods(product_provider.ProductProvider.__proto__),
+    getUserData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    deleteCheckoutProduct: dart.fnType(dart.void, [dart.legacy(core.int)]),
+    clearCheckoutProduct: dart.fnType(dart.void, []),
+    getCheckOutData: dart.fnType(dart.void, [], {color: dart.legacy(core.String), image: dart.legacy(core.String), name: dart.legacy(core.String), price: dart.legacy(core.double), quentity: dart.legacy(core.int), size: dart.legacy(core.String)}, {}),
+    getFeatureData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getHomeFeatureData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getHomeAchiveData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getNewAchiveData: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    addNotification: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    getSearchList: dart.fnType(dart.void, [], {list: dart.legacy(core.List$(dart.legacy(product.Product)))}, {}),
+    searchProductList: dart.fnType(dart.legacy(core.List$(dart.legacy(product.Product))), [dart.legacy(core.String)])
+  }));
+  dart.setGetterSignature(product_provider.ProductProvider, () => ({
+    __proto__: dart.getGetters(product_provider.ProductProvider.__proto__),
+    getUserModelList: dart.legacy(core.List$(dart.legacy(usermodel.UserModel))),
+    getCheckOutModelList: dart.legacy(core.List$(dart.legacy(cartmodel.CartModel))),
+    getCheckOutModelListLength: dart.legacy(core.int),
+    getFeatureList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getHomeFeatureList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getHomeAchiveList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getNewAchiesList: dart.legacy(core.List$(dart.legacy(product.Product))),
+    getNotificationIndex: dart.legacy(core.int),
+    getNotificationList: dart.dynamic
+  }));
+  dart.setLibraryUri(product_provider.ProductProvider, I[0]);
+  dart.setFieldSignature(product_provider.ProductProvider, () => ({
+    __proto__: dart.getFields(product_provider.ProductProvider.__proto__),
+    feature: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    featureData: dart.fieldType(dart.legacy(product.Product)),
+    checkOutModelList: dart.fieldType(dart.legacy(core.List$(dart.legacy(cartmodel.CartModel)))),
+    checkOutModel: dart.fieldType(dart.legacy(cartmodel.CartModel)),
+    userModelList: dart.fieldType(dart.legacy(core.List$(dart.legacy(usermodel.UserModel)))),
+    userModel: dart.fieldType(dart.legacy(usermodel.UserModel)),
+    homeFeature: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    homeAchive: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    newAchives: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product)))),
+    newAchivesData: dart.fieldType(dart.legacy(product.Product)),
+    notificationList: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.String)))),
+    searchList: dart.fieldType(dart.legacy(core.List$(dart.legacy(product.Product))))
+  }));
+  dart.trackLibraries("packages/e_commerce/provider/product_provider.dart", {
+    "package:e_commerce/provider/product_provider.dart": product_provider
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["product_provider.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/e_commerce/provider/product_provider.dart.lib.js"}');
+  // Exports:
+  return {
+    provider__product_provider: product_provider
+  };
+}));
+
+//# sourceMappingURL=product_provider.dart.lib.js.map

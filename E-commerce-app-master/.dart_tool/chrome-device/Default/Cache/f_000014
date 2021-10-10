@@ -1,0 +1,223 @@
+define(['dart_sdk', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/firebase_auth_platform_interface/src/action_code_info.dart', 'packages/firebase_auth_platform_interface/src/additional_user_info.dart', 'packages/firebase_auth_platform_interface/src/id_token_result.dart', 'packages/firebase_auth_platform_interface/src/providers/twitter_auth.dart', 'packages/firebase/src/storage.dart'], (function load__packages__firebase_auth_web__utils_dart(dart_sdk, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__firebase_auth_platform_interface__src__action_code_info$46dart, packages__firebase_auth_platform_interface__src__additional_user_info$46dart, packages__firebase_auth_platform_interface__src__id_token_result$46dart, packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart, packages__firebase__src__storage$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  const action_code_info = packages__firebase_auth_platform_interface__src__action_code_info$46dart.src__action_code_info;
+  const additional_user_info = packages__firebase_auth_platform_interface__src__additional_user_info$46dart.src__additional_user_info;
+  const id_token_result = packages__firebase_auth_platform_interface__src__id_token_result$46dart.src__id_token_result;
+  const types = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__types;
+  const email_auth = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__providers__email_auth;
+  const facebook_auth = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__providers__facebook_auth;
+  const github_auth = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__providers__github_auth;
+  const google_auth = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__providers__google_auth;
+  const twitter_auth = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__providers__twitter_auth;
+  const phone_auth = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__providers__phone_auth;
+  const oauth = packages__firebase_auth_platform_interface__src__providers__twitter_auth$46dart.src__providers__oauth;
+  const auth = packages__firebase__src__storage$46dart.src__auth;
+  var utils = Object.create(dart.library);
+  var $replaceFirst = dartx.replaceFirst;
+  var $_get = dartx._get;
+  var $forEach = dartx.forEach;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    IdentityMapOfStringL$dynamic: () => (T.IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(T.StringL(), dart.dynamic)))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    EmailAuthProviderL: () => (T.EmailAuthProviderL = dart.constFn(dart.legacy(email_auth.EmailAuthProvider)))(),
+    FacebookAuthProviderL: () => (T.FacebookAuthProviderL = dart.constFn(dart.legacy(facebook_auth.FacebookAuthProvider)))(),
+    FacebookAuthProviderL$1: () => (T.FacebookAuthProviderL$1 = dart.constFn(dart.legacy(auth.FacebookAuthProvider)))(),
+    StringLToFacebookAuthProviderL: () => (T.StringLToFacebookAuthProviderL = dart.constFn(dart.fnType(T.FacebookAuthProviderL$1(), [T.StringL()])))(),
+    LinkedHashMapOfStringL$dynamic: () => (T.LinkedHashMapOfStringL$dynamic = dart.constFn(collection.LinkedHashMap$(T.StringL(), dart.dynamic)))(),
+    GithubAuthProviderL: () => (T.GithubAuthProviderL = dart.constFn(dart.legacy(github_auth.GithubAuthProvider)))(),
+    GithubAuthProviderL$1: () => (T.GithubAuthProviderL$1 = dart.constFn(dart.legacy(auth.GithubAuthProvider)))(),
+    StringLToGithubAuthProviderL: () => (T.StringLToGithubAuthProviderL = dart.constFn(dart.fnType(T.GithubAuthProviderL$1(), [T.StringL()])))(),
+    GoogleAuthProviderL: () => (T.GoogleAuthProviderL = dart.constFn(dart.legacy(google_auth.GoogleAuthProvider)))(),
+    GoogleAuthProviderL$1: () => (T.GoogleAuthProviderL$1 = dart.constFn(dart.legacy(auth.GoogleAuthProvider)))(),
+    StringLToGoogleAuthProviderL: () => (T.StringLToGoogleAuthProviderL = dart.constFn(dart.fnType(T.GoogleAuthProviderL$1(), [T.StringL()])))(),
+    TwitterAuthProviderL: () => (T.TwitterAuthProviderL = dart.constFn(dart.legacy(twitter_auth.TwitterAuthProvider)))(),
+    PhoneAuthProviderL: () => (T.PhoneAuthProviderL = dart.constFn(dart.legacy(phone_auth.PhoneAuthProvider)))(),
+    OAuthProviderL: () => (T.OAuthProviderL = dart.constFn(dart.legacy(oauth.OAuthProvider)))(),
+    OAuthProviderL$1: () => (T.OAuthProviderL$1 = dart.constFn(dart.legacy(auth.OAuthProvider)))(),
+    StringLToOAuthProviderL: () => (T.StringLToOAuthProviderL = dart.constFn(dart.fnType(T.OAuthProviderL$1(), [T.StringL()])))(),
+    EmailAuthCredentialL: () => (T.EmailAuthCredentialL = dart.constFn(dart.legacy(email_auth.EmailAuthCredential)))(),
+    FacebookAuthCredentialL: () => (T.FacebookAuthCredentialL = dart.constFn(dart.legacy(facebook_auth.FacebookAuthCredential)))(),
+    GithubAuthCredentialL: () => (T.GithubAuthCredentialL = dart.constFn(dart.legacy(github_auth.GithubAuthCredential)))(),
+    GoogleAuthCredentialL: () => (T.GoogleAuthCredentialL = dart.constFn(dart.legacy(google_auth.GoogleAuthCredential)))(),
+    OAuthCredentialL: () => (T.OAuthCredentialL = dart.constFn(dart.legacy(oauth.OAuthCredential)))(),
+    TwitterAuthCredentialL: () => (T.TwitterAuthCredentialL = dart.constFn(dart.legacy(twitter_auth.TwitterAuthCredential)))(),
+    PhoneAuthCredentialL: () => (T.PhoneAuthCredentialL = dart.constFn(dart.legacy(phone_auth.PhoneAuthCredential)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: types.Persistence.prototype,
+        [_name]: "Persistence.SESSION",
+        index: 2
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: types.Persistence.prototype,
+        [_name]: "Persistence.NONE",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: types.Persistence.prototype,
+        [_name]: "Persistence.LOCAL",
+        index: 0
+      });
+    }
+  }, false);
+  var C = Array(3).fill(void 0);
+  var I = [];
+  var _name = dart.privateName(types, "_name");
+  utils.throwFirebaseAuthException = function throwFirebaseAuthException(exception) {
+    if (!dart.legacy(dart.anonymousJSType("FirebaseError")).is(exception)) {
+      return new firebase_auth_exception.FirebaseAuthException.new({code: "unknown", message: "An unknown error occurred."});
+    }
+    let firebaseError = dart.legacy(dart.anonymousJSType("FirebaseError")).as(exception);
+    let code = firebaseError.code[$replaceFirst]("auth/", "");
+    let message = firebaseError.message[$replaceFirst]("(" + dart.str(firebaseError.code) + ")", "");
+    return new firebase_auth_exception.FirebaseAuthException.new({code: code, message: message});
+  };
+  utils.convertWebActionCodeInfo = function convertWebActionCodeInfo(webActionCodeInfo) {
+    if (webActionCodeInfo == null) {
+      return null;
+    }
+    return new action_code_info.ActionCodeInfo.new({operation: 0, data: new (T.IdentityMapOfStringL$dynamic()).from(["email", webActionCodeInfo.data.email])});
+  };
+  utils.convertWebAdditionalUserInfo = function convertWebAdditionalUserInfo(webAdditionalUserInfo) {
+    if (webAdditionalUserInfo == null) {
+      return null;
+    }
+    return new additional_user_info.AdditionalUserInfo.new({isNewUser: webAdditionalUserInfo.isNewUser, profile: webAdditionalUserInfo.profile, providerId: webAdditionalUserInfo.providerId, username: webAdditionalUserInfo.username});
+  };
+  utils.convertWebIdTokenResult = function convertWebIdTokenResult(webIdTokenResult) {
+    return new id_token_result.IdTokenResult.new(new (T.IdentityMapOfStringL$dynamic()).from(["claims", webIdTokenResult.claims, "expirationTimestamp", webIdTokenResult.expirationTime.millisecond, "issuedAtTimestamp", webIdTokenResult.issuedAtTime.millisecond, "signInProvider", webIdTokenResult.signInProvider, "signInSecondFactor", null, "token", webIdTokenResult.token]));
+  };
+  utils.convertPlatformActionCodeSettings = function convertPlatformActionCodeSettings(actionCodeSettings) {
+    if (actionCodeSettings == null) {
+      return null;
+    }
+    return {url: actionCodeSettings.url, handleCodeInApp: actionCodeSettings.handleCodeInApp, android: actionCodeSettings.android == null ? null : {packageName: T.StringL().as(actionCodeSettings.android[$_get]("packageName")), minimumVersion: T.StringL().as(actionCodeSettings.android[$_get]("minimumVersion")), installApp: T.boolL().as(actionCodeSettings.android[$_get]("installApp"))}, iOS: actionCodeSettings.iOS == null ? null : {bundleId: T.StringL().as(actionCodeSettings.iOS[$_get]("bundleId"))}};
+  };
+  utils.convertPlatformPersistence = function convertPlatformPersistence(persistence) {
+    switch (persistence) {
+      case C[0] || CT.C0:
+      {
+        return "session";
+      }
+      case C[1] || CT.C1:
+      {
+        return "none";
+      }
+      case C[2] || CT.C2:
+      default:
+      {
+        return "local";
+      }
+    }
+  };
+  utils.convertPlatformAuthProvider = function convertPlatformAuthProvider(authProvider) {
+    if (T.EmailAuthProviderL().is(authProvider)) {
+      return auth.EmailAuthProvider.new();
+    }
+    if (T.FacebookAuthProviderL().is(authProvider)) {
+      let facebookAuthProvider = auth.FacebookAuthProvider.new();
+      authProvider.scopes[$forEach](dart.fn(scope => facebookAuthProvider.addScope(scope), T.StringLToFacebookAuthProviderL()));
+      facebookAuthProvider.setCustomParameters(T.LinkedHashMapOfStringL$dynamic().from(authProvider.parameters));
+      return facebookAuthProvider;
+    }
+    if (T.GithubAuthProviderL().is(authProvider)) {
+      let githubAuthProvider = auth.GithubAuthProvider.new();
+      authProvider.scopes[$forEach](dart.fn(scope => githubAuthProvider.addScope(scope), T.StringLToGithubAuthProviderL()));
+      githubAuthProvider.setCustomParameters(T.LinkedHashMapOfStringL$dynamic().from(authProvider.parameters));
+      return githubAuthProvider;
+    }
+    if (T.GoogleAuthProviderL().is(authProvider)) {
+      let googleAuthProvider = auth.GoogleAuthProvider.new();
+      authProvider.scopes[$forEach](dart.fn(scope => googleAuthProvider.addScope(scope), T.StringLToGoogleAuthProviderL()));
+      googleAuthProvider.setCustomParameters(T.LinkedHashMapOfStringL$dynamic().from(authProvider.parameters));
+      return googleAuthProvider;
+    }
+    if (T.TwitterAuthProviderL().is(authProvider)) {
+      let twitterAuthProvider = auth.TwitterAuthProvider.new();
+      twitterAuthProvider.setCustomParameters(T.LinkedHashMapOfStringL$dynamic().from(authProvider.parameters));
+      return twitterAuthProvider;
+    }
+    if (T.PhoneAuthProviderL().is(authProvider)) {
+      return auth.PhoneAuthProvider.new();
+    }
+    if (T.OAuthProviderL().is(authProvider)) {
+      let oAuthProvider = auth.OAuthProvider.new(authProvider.providerId);
+      authProvider.scopes[$forEach](dart.fn(scope => oAuthProvider.addScope(scope), T.StringLToOAuthProviderL()));
+      oAuthProvider.setCustomParameters(T.LinkedHashMapOfStringL$dynamic().from(authProvider.parameters));
+      return oAuthProvider;
+    }
+    return null;
+  };
+  utils.convertWebOAuthCredential = function convertWebOAuthCredential(oAuthCredential) {
+    if (oAuthCredential == null) {
+      return null;
+    }
+    return new oauth.OAuthProvider.new(oAuthCredential.providerId).credential({accessToken: oAuthCredential.accessToken, idToken: oAuthCredential.idToken});
+  };
+  utils.convertPlatformCredential = function convertPlatformCredential(credential) {
+    if (T.EmailAuthCredentialL().is(credential)) {
+      if (credential.emailLink != null) {
+        dart.throw(new core.UnimplementedError.new("EmailAuthProvider.credentialWithLink() is not supported on web"));
+      }
+      return auth.EmailAuthProvider.credential(credential.email, credential.password);
+    }
+    if (T.FacebookAuthCredentialL().is(credential)) {
+      return auth.FacebookAuthProvider.credential(credential.accessToken);
+    }
+    if (T.GithubAuthCredentialL().is(credential)) {
+      return auth.GithubAuthProvider.credential(credential.accessToken);
+    }
+    if (T.GoogleAuthCredentialL().is(credential)) {
+      return auth.GoogleAuthProvider.credential(credential.idToken, credential.accessToken);
+    }
+    if (T.OAuthCredentialL().is(credential)) {
+      return auth.OAuthProvider.new(credential.providerId).credential(credential.idToken, credential.accessToken);
+    }
+    if (T.TwitterAuthCredentialL().is(credential)) {
+      return auth.TwitterAuthProvider.credential(credential.accessToken, credential.secret);
+    }
+    if (T.PhoneAuthCredentialL().is(credential)) {
+      return auth.PhoneAuthProvider.credential(credential.verificationId, credential.smsCode);
+    }
+    if (T.OAuthCredentialL().is(credential)) {
+      return auth.OAuthProvider.new(credential.providerId).credential(credential.idToken, credential.accessToken);
+    }
+    return null;
+  };
+  dart.trackLibraries("packages/firebase_auth_web/utils.dart", {
+    "package:firebase_auth_web/utils.dart": utils
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["utils.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/firebase_auth_web/utils.dart.lib.js"}');
+  // Exports:
+  return {
+    utils: utils
+  };
+}));
+
+//# sourceMappingURL=utils.dart.lib.js.map
